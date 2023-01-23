@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdio.h>
 int _putchar(char c);
 int _printf(const char *format, ...);
 int _char(va_list args);
