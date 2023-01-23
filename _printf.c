@@ -35,8 +35,12 @@ int _printf(const char *format, ...)
 				case 'i':
 					count += _int(args);
 					break;
-					default:
-				return (count);
+				case 'b':
+					count += _int(args);
+					break;
+
+				default:
+					return (count);
 			}
 		}
 		else
