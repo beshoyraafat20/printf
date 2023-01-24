@@ -1,6 +1,6 @@
 /*
  * File: functions1.c
- * Auth: Ahmed Nagm - Beshoy Raafat
+ * Author: Ahmed Nagm - Beshoy Raafat
  */
 
 #include "main.h"
