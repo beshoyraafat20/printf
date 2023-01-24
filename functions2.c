@@ -1,6 +1,6 @@
 /*
  * File: functions1.c
- * Auth: Ahmed Nagm - Beshoy Raafat
+ * Author: Ahmed Nagm - Beshoy Raafat
  */
 #include "main.h"
 
@@ -15,6 +15,7 @@
  * @size: Size specifier
  * Return: Number of chars printed.
  */
+ 
 int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
