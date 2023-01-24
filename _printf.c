@@ -1,4 +1,6 @@
 #include "main.h"
+#include <limits.h>
+#include <stdio.h>
 
 /**
  * _printf - function that produces output according to a format.
@@ -10,45 +12,42 @@
 
 int _printf(const char *format, ...)
 {
+// no flags, *pfunc
+	int (*pfunc)(va_list, flags_t *);
+	const char *p;
 	va_list args;
-	int count = 0;
-	int i = 0;
+	flags_t flags = {0, 0, 0};
+
+	register int count = 0;
+
+//nested ifs to include the for to avoid confusion and i hate swtichs :)
 
 	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
 	{
-		if (format[i] == '%')
+		if (*p == '%')
 		{
-			i++;
-			switch (format[i])
+			p++;
+			if (*p == '%')
 			{
-				case 'c':
-					count += _char(args);
-					break;
-				case 's':
-					count += _str(args);
-					break;
-				case '%':
-					count += _putchar('%');
-					break;
-				case 'd':
-				case 'i':
-					count += _int(args);
-					break;
-				case 'b':
-					count += _int(args);
-					break;
-
-				default:
-					return (count);
+				count += _putchar('%');
+				continue;
 			}
-		}
-		else
-		{
-			_putchar(format[i]);
-			count++;
-		}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(args, &flags)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
 	}
+	_putchar(-1);
 	va_end(args);
 	return (count);
+
 }
