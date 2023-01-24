@@ -1,3 +1,8 @@
+/*
+ * File: functions.c
+ * Auth: Ahmed Nagm - Beshoy Raafat
+ */
+
 #include "main.h"
 
 /************************* PRINT CHAR *************************/
