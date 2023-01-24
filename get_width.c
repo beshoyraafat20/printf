@@ -2,6 +2,7 @@
  * File: functions1.c
  * Authors: Ahmed Nagm - Beshoy Raafat
  */
+
 #include "main.h"
 
 /**
@@ -12,6 +13,7 @@
  *
  * Return: width.
  */
+
 int get_width(const char *format, int *i, va_list list)
 {
 	int curr_i;
