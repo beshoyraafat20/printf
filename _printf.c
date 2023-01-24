@@ -1,12 +1,15 @@
 #include "main.h"
-
-void print_buffer(char buffer[], int *buff_ind);
+#include <limits.h>
+#include <stdio.h>
 
 /**
- * _printf - Printf function
- * @format: format.
- * Return: Printed chars.
+ * _printf - function that produces output according to a format.
+ * @format: character string.
+ *
+ * Return: the number of characters printed
+ * (excluding the null byte used to end output to strings)
  */
+
 int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0;
