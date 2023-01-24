@@ -1,3 +1,7 @@
+/*
+ * File: functions1.c
+ * Auth: Ahmed Nagm - Beshoy Raafat
+ */
 #include "main.h"
 
 void print_buffer(char buffer[], int *buff_ind);
